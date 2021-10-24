@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  python-build:
+    build: ./
+
+  generator:
+    build: ./generator
+    environment:
+      KAFKA_BROKER_URL: broker:9093
+      SENTENCES_TOPIC: queuing.sentences.test
+      SENTENCES_PER_SECOND: 1
+
+  indicator:
+    build: ./indicator
+    environment:
+      KAFKA_BROKER_URL: broker:9093
+      SENTENCES_TOPIC: queuing.sentences.test
+      PLAYER1_TOPIC: streaming.sentences.player1.test
+      PLAYER2_TOPIC: streaming.sentences.player2.test
+      DB_USERNAME: root
+      DB_PASSWORD: password
+
+networks:
+  kafka-network:
+    external: true
