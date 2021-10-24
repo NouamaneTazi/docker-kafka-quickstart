@@ -5,14 +5,14 @@ from time import sleep
 import json
 from kafka import KafkaProducer
 from stream import generate_random_sentence
-import datetime 
+import datetime
 
 KAFKA_BROKER_URL = os.environ.get('KAFKA_BROKER_URL', 'localhost:9092')
 TOPIC = os.environ.get('SENTENCES_TOPIC', 'text-stream')
 SENTENCES_PER_SECOND = float(os.environ.get('SENTENCES_PER_SECOND', 1))
 SLEEP_TIME = 1 / SENTENCES_PER_SECOND
 
-
+print("### KAFKA_BROKER_URL", KAFKA_BROKER_URL)
 if __name__ == '__main__':
     producer = KafkaProducer(
         bootstrap_servers=KAFKA_BROKER_URL,

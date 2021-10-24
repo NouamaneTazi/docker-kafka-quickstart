@@ -6,7 +6,6 @@ import os
 from kafka import KafkaConsumer, KafkaProducer
 import datetime
 
-import pymongo
 
 KAFKA_BROKER_URL = os.environ.get('KAFKA_BROKER_URL')
 TOPIC = os.environ.get('SENTENCES_TOPIC')
@@ -22,12 +21,8 @@ def player1_talking(sentences: dict) -> bool:
     return sentences['player'] == 'player1'
 
 
+print("### KAFKA_BROKER_URL", KAFKA_BROKER_URL)
 if __name__ == '__main__':
-    dbClient = pymongo.MongoClient(
-        f"mongodb://{DB_USERNAME}:{DB_PASSWORD}@mongo:27017/")
-    testDb = dbClient["test"]
-    player1Col = testDb["player1"]
-    player2Col = testDb["player2"]
     print("Connecting...")
     consumer = KafkaConsumer(
         TOPIC,
@@ -46,10 +41,3 @@ if __name__ == '__main__':
         topic = PLAYER1_TOPIC if player1_talking(sentences) else PLAYER2_TOPIC
         producer.send(topic, value=sentences)
         print(datetime.datetime.now().time(), sentences)  # DEBUG
-        # Send to DB
-        if player1_talking(sentences):
-            infos = player1Col.insert_one(sentences)
-            print(infos.inserted_id, ":", sentences)
-        else:
-            infos = player2Col.insert_one(sentences)
-            print(infos.inserted_id, ":", sentences)

@@ -1,20 +1,17 @@
 version: "3"
 
 services:
-  python-build:
-    build: ./
-
   generator:
     build: ./generator
     environment:
-      KAFKA_BROKER_URL: broker:9093
+      KAFKA_BROKER_URL: kafka:29092
       SENTENCES_TOPIC: queuing.sentences.test
       SENTENCES_PER_SECOND: 1
 
   indicator:
     build: ./indicator
     environment:
-      KAFKA_BROKER_URL: broker:9093
+      KAFKA_BROKER_URL: kafka:29092
       SENTENCES_TOPIC: queuing.sentences.test
       PLAYER1_TOPIC: streaming.sentences.player1.test
       PLAYER2_TOPIC: streaming.sentences.player2.test

@@ -1,8 +1,9 @@
 """Generates random sentences."""
 
 from random import choice, randint
-from string import ascii_letters, digits
-import datetime 
+from string import ascii_letters
+import datetime
+
 
 def generate_random_sentence() -> dict:
     """Create a fake sentence."""
@@ -11,7 +12,7 @@ def generate_random_sentence() -> dict:
     sentence = ''.join(choice(letters) for i in range(stringLength))
     players = ['player1', 'player2']
     return {
-        'time':str(datetime.datetime.now().time() ),
+        'time': str(datetime.datetime.now().time()),
         'player': choice(players),
         'sentence': sentence
     }
