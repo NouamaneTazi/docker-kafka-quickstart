@@ -1,4 +1,4 @@
-#
+# Docker Kafka Quickstart
 
 A minimal configuration for a dockerized kafka project.
 
