@@ -46,3 +46,5 @@ Connected to queuing.sentences.test topic!
 09:35:19.160985 {'time': '09:35:19.154674', 'player': 'player2', 'sentence': 'qgSAzkUNm  fBQyruw S U   PvLnharO '}
 09:35:20.183376 {'time': '09:35:20.157269', 'player': 'player1', 'sentence': 'OlX SW  a gcpXVGHxW'}
 ```
+
+For more information about kafka with Docker: https://hub.docker.com/r/wurstmeister/kafka/
