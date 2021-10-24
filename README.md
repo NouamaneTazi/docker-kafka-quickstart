@@ -8,7 +8,7 @@ A minimal configuration for a dockerized kafka project.
 ```bash
 # creates the network `kafka-network` and build and
 # runs the containers for zookeeper and kafka
-docker-compose -f "docker-compose.kafka.yml" up -d --build
+docker-compose -f "docker-compose.kafka.yml" up -d --build # remove -d if you want to see logs in the same shell
 ```
 
 * You can then run as many broker/consumer containers on your `kafka-network`, in this case: `generator` is a broker, and `indicator` is a consumer.
