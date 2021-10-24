@@ -47,4 +47,5 @@ Connected to queuing.sentences.test topic!
 09:35:20.183376 {'time': '09:35:20.157269', 'player': 'player1', 'sentence': 'OlX SW  a gcpXVGHxW'}
 ```
 
-For more information about kafka with Docker: https://hub.docker.com/r/wurstmeister/kafka/
+## Refs:
+For more information about using kafka with Docker: https://hub.docker.com/r/wurstmeister/kafka/
